@@ -1,0 +1,8 @@
+.items {
+    list-style: none;
+    padding: 0 90px;
+}
+
+#manager-body a {
+    margin-top: 5px;
+}
