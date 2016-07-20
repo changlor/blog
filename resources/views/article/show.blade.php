@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="content" style="padding: 0 105px;">
+    <div id="content" style="margin-top: 50px;padding: 0 108px;">
 
         <h4>
-            <a style="font-size: 17px;" href="{{ url('/') }}">Return</a>
+            <a class="custom-navbar" style="font-size: 17px;" href="{{ url('/') }}">Return</a>
         </h4>
 
         <h2 style="text-align: center; margin-top: 20px;">{{ $article->title }}</h2>
@@ -23,7 +23,7 @@
             <div class="conmments" style="margin-top: 100px;">
                 @foreach ($article->hasManyComments as $comment)
 
-                    <div class="one" style="border-radius: 9px; background-color: #efefef; border-top: solid 5px #fff; padding: 15px 20px;">
+                    <div class="one" style="border-radius: 9px; background-color: #f3f3f3; border-top: solid 5px #fff; padding: 15px 20px;">
                         <div class="nickname" data="{{ $comment->nickname }}">
                             @if ($comment->website)
                                 <a style="font-size: 21px;" href="{{ $comment->website }}">
@@ -54,27 +54,27 @@
                 </div>
             @endif
 
-            <div id="new" style="margin-top: 20px;">
+            <div id="new" class="custom-navbar" style="margin-top: 20px;">
                 <form action="{{ url('comment') }}" method="POST">
                     {!! csrf_field() !!}
                     <input type="hidden" name="article_id" value="{{ $article->id }}">
                     <div class="form-group">
                         <label>Nickname</label>
-                        <input type="text" name="nickname" class="form-control" style="width: 300px;" required="required">
+                        <input type="text" name="nickname" class="form-control custom-form-control" style="width: 300px;" required="required">
                     </div>
                     <div class="form-group">
                         <label>Email address</label>
-                        <input type="email" name="email" class="form-control" style="width: 300px;">
+                        <input type="email" name="email" class="form-control custom-form-control" style="width: 300px;">
                     </div>
                     <div class="form-group">
                         <label>Home page</label>
-                        <input type="text" name="website" class="form-control" style="width: 300px;">
+                        <input type="text" name="website" class="form-control custom-form-control" style="width: 300px;">
                     </div>
                     <div class="form-group">
                         <label>Content</label>
-                        <textarea name="content" id="newFormContent" class="form-control" rows="10" required="required"></textarea>
+                        <textarea name="content" id="newFormContent" class="form-control custom-form-control" rows="10" required="required"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-lg btn-success col-lg-12">Submit</button>
+                    <button type="submit" class="btn btn-lg btn-danger col-lg-12">Boom</button>
                 </form>
             </div>
 

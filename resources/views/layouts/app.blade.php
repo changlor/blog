@@ -13,7 +13,8 @@
     <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="custom-navbar navbar navbar-default navbar-static-top custom-menu">
+        <div class="custom-menu-blur"></div>
         <div class="container">
             <div class="navbar-header">
 
@@ -26,7 +27,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand dynamic-font-color" href="{{ url('/') }}">
                     Index
                 </a>
             </div>
@@ -34,7 +35,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/board') }}">Board</a></li>
+                    <li><a class="dynamic-font-color" href="{{ url('/board') }}">Board</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -47,13 +48,13 @@
                     -->
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle dynamic-font-color" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/admin') }}"><i class="fa fa-btn fa-sign-out"></i>Admin</a></li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>logout</a></li>
                             </ul>
                         </li>
                     @endif
@@ -63,6 +64,14 @@
     </nav>
 
     @yield('content')
-
+    <!--Footer-->
+    <footer class="container">
+        <div class="custom-navbar" id="copyright">
+            <div class="setp-20">&nbsp;</div>
+            <p class="right">Powered by Laravel. ❤ Changle.</p>
+            <p class="left">©2016-now . Changle</p>
+        </div>
+    </footer>
+    <script src="{{ URL::asset('assets/js/main.js') }}"></script>
 </body>
 </html>
